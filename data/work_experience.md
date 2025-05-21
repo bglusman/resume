@@ -12,6 +12,7 @@ work_experience:
       Shifted focus mid-2022 to overall order processing, and in 2024 to executive intelligence reporting.
       Led automation tooling, improved Snowflake query processes, developed widely-used internal frameworks,
       and mentored multiple engineers.
+    tags: ["core", "elixir", "management", "phoenix", "snowflake"]
 
   - role: Director of Technology / Tech Lead
     company: Stella Service, Inc. / PowerReviews, Inc.
@@ -22,6 +23,7 @@ work_experience:
       microservice API with high uptime.
       Pioneered Kubernetes and Elixir/Phoenix adoption.
       Managed product through acquisition and legacy platform migration.
+    tags: ["core", "elixir", "leadership", "kubernetes", "phoenix"]
 
   - role: Software Developer
     company: Skillfeed (Shutterstock, Inc.)

@@ -4,7 +4,7 @@ projects:
   - title: live_dashboard_history
     link: https://github.com/bglusman/live_dashboard_history
     description: Plugin for Phoenix LiveDashboard that adds historical metrics tracking.
-    tags: [elixir, phoenix, telemetry]
+    tags: ["core", "elixir", "phoenix", "telemetry"]
 
   - title: phoenix_live_dashboard (contribution)
     link: https://github.com/bglusman/phoenix_live_dashboard

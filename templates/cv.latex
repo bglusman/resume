@@ -1,11 +1,16 @@
 % cv.latex
-% install mactex and pandoc then
-% run the following command to render
+% install mactex, yq, and pandoc
+% This is a LaTeX template for a multi-page curriculum vitae.
+%
+% Requires: pandoc, xelatex (e.g., via MacTeX), (yq, YAML processor, is only required for the filtered resume generation)
+%
+% --- How to Generate ---
 %pandoc data/*.md \
 %  --template=templates/cv.latex \
 %  -o cv.pdf \
 %  --metadata-file=data/meta.md \
 %  --pdf-engine=xelatex
+%
 \documentclass[letterpaper,11pt]{article}
 \usepackage[margin=0.8in]{geometry}
 \usepackage{enumitem}
