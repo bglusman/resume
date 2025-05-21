@@ -1,0 +1,83 @@
+% resume.latex
+% install mactex and pandoc  then
+% run the following command to render
+%pandoc data/*.md \
+%  --template=templates/resume.latex \
+%  -o resume.pdf \
+%  --metadata-file=data/meta.md \
+%  --pdf-engine=xelatex
+\documentclass[letterpaper,10pt]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{empty}
+
+\begin{document}
+
+%— Header
+\begin{center}
+  {\LARGE \textbf{$name$}}\\
+  \vspace{0.2em}
+  \href{mailto:$email$}{$email$} \;|\; $phone$ \;|\; $location$\\
+\end{center}
+
+%— Experience
+$if(work_experience.items)$
+\section*{Experience}
+$for(work_experience.items)$
+\textbf{$it.role$} \hfill {\small $it.dates$}\\
+\textit{$it.company$ \;—\; $it.location$}\\
+$if(it.description)$
+\begin{itemize}[leftmargin=*,label={},noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+  \item $it.description$
+\end{itemize}
+$endif$
+\vspace{0.2em} % Reduced space after item
+$endfor$
+$endif$
+
+%— Education
+$if(education.items)$
+\section*{Education}
+$for(education.items)$
+\textbf{$it.institution$}, $it.degree$ \hfill {\small $it.date$}\\
+\textit{$it.location$}\\
+$if(it.details)$
+\begin{itemize}[leftmargin=1.5em, noitemsep,topsep=0.2em,parsep=0pt,partopsep=0pt,label=\textbullet]
+$for(it.details)$
+  \item $it$
+$endfor$
+\end{itemize}
+$endif$
+\vspace{0.5em}
+$endfor$
+$endif$
+
+%— Projects
+$if(projects.items)$
+\section*{Projects}
+$for(projects.items)$
+\textbf{$it.title$}$if(it.link)$ \hfill {\small \href{$it.link$}{View Project}}$endif$\\
+$if(it.description)$
+\begin{itemize}[leftmargin=*,label={},noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+  \item $it.description$
+\end{itemize}
+$endif$
+$if(it.tags)$
+{{\small \textit{Tags: $for(it.tags)$$it$$sep$, $endfor$}}}\\
+$endif$
+\vspace{0.5em}
+$endfor$
+$endif$
+
+%— Skills (inline, for brevity)
+$if(skills.categories)$
+\section*{Skills}
+\small
+$for(skills.categories)$
+\textbf{$it.name$}: $for(it.items)$$it$$sep$, $endfor$\\
+$endfor$
+\normalsize
+$endif$
+
+\end{document}

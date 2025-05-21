@@ -1,0 +1,88 @@
+% cv.latex
+% install mactex and pandoc then
+% run the following command to render
+%pandoc data/*.md \
+%  --template=templates/cv.latex \
+%  -o cv.pdf \
+%  --metadata-file=data/meta.md \
+%  --pdf-engine=xelatex
+\documentclass[letterpaper,11pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+\pagestyle{plain}
+
+\begin{document}
+
+%— Header
+\begin{center}
+  {\Huge \textbf{$name$}}\\
+  \vspace{0.5em}
+  \href{mailto:$email$}{$email$} \;|\; $phone$ \;|\; $location$\\
+\end{center}
+\vspace{1em}
+
+%— Professional Summary (optional)
+$if(summary)$
+\section*{Summary}
+$summary$
+\vspace{1em}
+$endif$
+
+%— Experience (full detail)
+$if(work_experience.items)$
+\section*{Work Experience}
+$for(work_experience.items)$
+\subsection*{$it.role$ — $it.company$}
+\textit{$it.location$} \hfill {\small $it.dates$}
+$if(it.description)$
+\begin{itemize}[leftmargin=*,label={},noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+  \item $it.description$
+\end{itemize}
+$endif$
+\vspace{0.5em} % Added space after item
+$endfor$
+$endif$
+
+%— Projects & Open Source
+$if(projects.items)$
+\section*{Projects \& Open Source}
+$for(projects.items)$
+\subsubsection*{$it.title$ $if(it.link)$(\href{$it.link$}{View})$endif$}
+$if(it.description)$
+$it.description$\\
+$endif$
+$if(it.tags)$
+\textbf{Tags:} $for(it.tags)$$it$$sep$, $endfor$\\
+$endif$
+\vspace{0.5em}
+$endfor$
+$endif$
+
+%— Education
+$if(education.items)$
+\section*{Education}
+$for(education.items)$
+\textbf{$it.institution$}, $it.degree$ — \textit{$it.location$}\\
+{\small $it.date$}\\
+$if(it.details)$
+\begin{itemize}[leftmargin=1.5em, noitemsep,topsep=0.2em,parsep=0pt,partopsep=0pt,label=\textbullet]
+$for(it.details)$
+  \item $it$
+$endfor$
+\end{itemize}
+$endif$
+\vspace{0.5em}
+$endfor$
+$endif$
+
+%— Skills
+$if(skills.categories)$
+\section*{Skills}
+$for(skills.categories)$
+\textbf{$it.name$}: $for(it.items)$$it$$sep$, $endfor$\\
+$endfor$
+$endif$
+
+\end{document}
