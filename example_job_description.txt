@@ -1,0 +1,40 @@
+Senior Backend Engineer - Fintech Startup
+
+We're looking for an experienced backend engineer to join our growing fintech team. You'll be responsible for building scalable, secure financial services that handle millions of transactions.
+
+Key Responsibilities:
+- Design and implement high-performance backend services using Elixir/Phoenix or similar technologies
+- Build and maintain APIs that handle financial transactions with 99.9% uptime
+- Collaborate with frontend teams to deliver seamless user experiences
+- Implement security best practices for financial data handling
+- Optimize database performance and design efficient data models
+- Participate in code reviews and mentor junior developers
+- Work in an agile environment with continuous deployment
+
+Required Skills:
+- 5+ years of backend development experience
+- Strong experience with functional programming (Elixir, Erlang, or similar)
+- Experience with Phoenix framework and LiveView
+- Solid understanding of SQL and database design (PostgreSQL preferred)
+- Experience with message queues (RabbitMQ, Kafka, etc.)
+- Knowledge of distributed systems and microservices architecture
+- Understanding of financial regulations and compliance requirements
+- Experience with Docker and Kubernetes
+- Strong testing practices (unit, integration, property-based testing)
+
+Preferred Skills:
+- Experience in fintech or payments industry
+- GraphQL API development
+- Experience with Snowflake or similar data warehousing
+- Knowledge of blockchain technologies
+- Experience with monitoring and observability tools (Grafana, Prometheus)
+- Previous startup experience
+
+What We Offer:
+- Competitive salary and equity package
+- Remote-first culture with quarterly team gatherings
+- Professional development budget
+- Health, dental, and vision insurance
+- Unlimited PTO policy
+
+This is a senior-level position requiring someone who can work independently and make architectural decisions. You'll be joining a team of 8 engineers and will have significant influence on our technical direction.
