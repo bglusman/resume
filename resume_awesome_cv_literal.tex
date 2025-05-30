@@ -1,0 +1,111 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[11pt, a4paper]{awesome-cv}
+% \usepackage{fontspec} % Removed as awesome-cv.cls handles it.
+
+\geometry{left=2cm, top=1.5cm, right=2cm, bottom=2cm, footskip=.5cm}
+\fontdir[fonts/]
+\colorlet{awesome}{awesome-red}
+\setbool{acvSectionColorHighlight}{true}
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+% --- Personal Information ---
+\name{Brian J}{Glusman}
+\address{651 Vanderbilt St, Apt 3X, Brooklyn, NY}
+\mobile{215-460-9585} % Reinstated with plain text, no icon call yet
+\email{brian@glusman.me} % Reinstated with plain text, no icon call yet
+% \homepage{}
+% \github{}
+% \linkedin{}
+\position{Engineering Manager{\enskip|\enskip}Elixir Developer}
+\quote{``Experienced engineering manager and developer with expertise in Elixir, Phoenix, \\ and data analytics platforms. Strong background in technical leadership, system architecture, \\ and mentoring engineers.''} 
+\makecvfooter{\today}{Brian J Glusman~~~|~~~R\'esum\'e}{\thepage}
+
+\begin{document}
+\makecvheader
+
+% --- Education --- 
+\cvsection{Education}
+\begin{cventries}
+  \cventry
+    {B.A. in Computer Science}
+    {Bowdoin College}
+    {Brunswick, Maine}
+    {May 2001}
+    {
+      \begin{cvitems}
+        \item GPA in Major: 3.8
+        \item SAT: 1570 (800 Math, 770 Verbal)
+      \end{cvitems}
+    }
+  \cventry
+    {N/A}
+    {Recurse Center}
+    {New York City, NY}
+    {Spring 2015}
+    {
+      \begin{cvitems}
+        \item Self-directed programmer retreat focused on open source and deep technical skill-building.
+      \end{cvitems}
+    }
+\end{cventries}
+
+% --- Skills --- 
+\cvsection{Skills}
+\begin{cvskills}
+  \cvskill{Programming Languages}{Elixir, Ruby, JavaScript, Objective-C, SQL}
+  \cvskill{Frameworks \& Libraries}{Phoenix, Rails, Backbone, GraphQL}
+  \cvskill{Tools \& Platforms}{Kubernetes, Snowflake, Docker, Git, Linux (Ubuntu, RedHat, CentOS)}
+  \cvskill{Open Source Contributions}{\parbox[t]{0.7\linewidth}{live\_dashboard\_history, phx\_live\_dashboard PR,\\ avalanche, ayesql}} 
+\end{cvskills}
+
+% --- Experience --- 
+\cvsection{Experience}
+\begin{cventries}
+  \cventry
+    {Engineering Manager – Executive Intelligence Reporting \& Analytics Platform}
+    {PepsiCo}
+    {New York City, NY}
+    {July 2020 – Present}
+    {
+      \begin{cvitems}
+        \item Started as Senior Backend Engineer in supply chain (Elixir, Phoenix, GraphQL).
+        \item Promoted to Engineering Lead (2021) managing warehouse order processing.
+        \item Promoted to Engineering Manager (late 2021), supervising junior and mid-level engineers.
+        \item Shifted focus mid-2022 to overall order processing, and in 2024 to executive intelligence reporting.
+        \item Led automation tooling, improved Snowflake query processes, developed widely-used internal frameworks,
+        \item and mentored multiple engineers.
+      \end{cvitems}
+    }
+  \cventry
+    {Director of Technology / Tech Lead}
+    {Stella Service, Inc. / PowerReviews, Inc.}
+    {New York City, NY / Chicago, IL (remote)}
+    {August 2015 – February 2019}
+    {
+      \begin{cvitems}
+        \item Led transformation of prototype to enterprise feature set, introduced hierarchical modeling, SAML authentication,
+        \item microservice API with high uptime.
+        \item Pioneered Kubernetes and Elixir/Phoenix adoption.
+        \item Managed product through acquisition and legacy platform migration.
+      \end{cvitems}
+    }
+\end{cventries}
+
+% --- Projects --- 
+\cvsection{Projects}
+\begin{cventries}
+  \cventry
+    {live\_dashboard\_history}
+    {https://github.com/bglusman/live\_dashboard\_history}
+    {Phoenix LiveDashboard Plugin}
+    {Ongoing}
+    {
+      \begin{cvitems}
+        \item Plugin for Phoenix LiveDashboard that adds historical metrics tracking.
+        \item Technologies: Elixir, Phoenix, Telemetry
+      \end{cvitems}
+    }
+\end{cventries}
+
+\end{document}
