@@ -1,12 +1,13 @@
 ---
 skills:
-  categories:
-    - name: Programming Languages
-      items: [Elixir, Ruby, JavaScript, Objective-C, SQL]
-    - name: Frameworks & Libraries
-      items: [Phoenix, Rails, Backbone, GraphQL]
-    - name: Tools & Platforms
-      items: [Kubernetes, Snowflake, Docker, Git, Linux (Ubuntu, RedHat, CentOS)]
-    - name: Open Source Contributions
-      items: [live_dashboard_history, phoenix_live_dashboard PR, avalanche, ayesql]
+  - category: Programming Languages
+    skills: [Elixir, Ruby, JavaScript, Objective-C, SQL, Python, Bash]
+  - category: Frameworks & Libraries
+    skills: [Phoenix, LiveView, Rails, GraphQL, Backbone, OTP/GenServer]
+  - category: Data & Analytics
+    skills: [Snowflake, PostgreSQL, Data Warehousing, ETL Pipelines, Analytics]
+  - category: Infrastructure & DevOps
+    skills: [Kubernetes, Docker, AWS, CI/CD, Linux, Git, Monitoring]
+  - category: Leadership & Management
+    skills: [Team Management, Technical Mentoring, Architecture Design, Agile, Code Review]
 ---

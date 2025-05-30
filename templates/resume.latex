@@ -1,11 +1,24 @@
 % resume.latex
-% install mactex and pandoc  then
-% run the following command to render
-%pandoc data/*.md \
-%  --template=templates/resume.latex \
-%  -o resume.pdf \
-%  --metadata-file=data/meta.md \
-%  --pdf-engine=xelatex
+% LaTeX template for a one-page resume.
+%
+% Requires: pandoc, xelatex (e.g., via MacTeX), yq (YAML processor)
+%
+% --- How to Generate ---
+% This resume uses a pre-processing step to filter content based on tags.
+% Use the 'generate_resume.sh' script located in the project root.
+%
+% To generate the default resume (items tagged "core"):
+%   bash generate_resume.sh
+%   Output: resume_core.pdf
+%
+% To generate a resume focused on a specific tag (e.g., "elixir"):
+%   bash generate_resume.sh --focus elixir
+%   Output: resume_elixir.pdf
+%
+% The script uses 'yq' to filter data/work_experience.md and data/projects.md,
+% creating temporary filtered files which are then fed to Pandoc.
+% The Pandoc template itself simply iterates through the pre-filtered items.
+%
 \documentclass[letterpaper,10pt]{article}
 \usepackage[margin=0.6in]{geometry}
 \usepackage{enumitem}
@@ -25,14 +38,14 @@
 $if(work_experience.items)$
 \section*{Experience}
 $for(work_experience.items)$
-\textbf{$it.role$} \hfill {\small $it.dates$}\\
-\textit{$it.company$ \;—\; $it.location$}\\
-$if(it.description)$
-\begin{itemize}[leftmargin=*,label={},noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-  \item $it.description$
-\end{itemize}
-$endif$
-\vspace{0.2em} % Reduced space after item
+  \textbf{$it.role$} \hfill {\small $it.dates$}\\
+  \textit{$it.company$ \;—\; $it.location$}\\
+  $if(it.description)$
+  \begin{itemize}[leftmargin=*,label={},noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item $it.description$
+  \end{itemize}
+  $endif$
+  \vspace{0.2em}
 $endfor$
 $endif$
 
@@ -57,16 +70,16 @@ $endif$
 $if(projects.items)$
 \section*{Projects}
 $for(projects.items)$
-\textbf{$it.title$}$if(it.link)$ \hfill {\small \href{$it.link$}{View Project}}$endif$\\
-$if(it.description)$
-\begin{itemize}[leftmargin=*,label={},noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
-  \item $it.description$
-\end{itemize}
-$endif$
-$if(it.tags)$
-{{\small \textit{Tags: $for(it.tags)$$it$$sep$, $endfor$}}}\\
-$endif$
-\vspace{0.5em}
+  \textbf{$it.title$}$if(it.link)$ \hfill {\small \href{$it.link$}{View Project}}$endif$\\
+  $if(it.description)$
+  \begin{itemize}[leftmargin=*,label={},noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+    \item $it.description$
+  \end{itemize}
+  $endif$
+  $if(it.technologies)$
+  {{\small \textit{Technologies: $for(it.technologies)$$it$$sep$, $endfor$}}}\\[0.2em]
+  $endif$
+  \vspace{0.3em}
 $endfor$
 $endif$
 

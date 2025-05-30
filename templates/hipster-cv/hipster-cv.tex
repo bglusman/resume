@@ -1,0 +1,292 @@
+% a mashup of hipstercv, friggeri and twenty cv
+% https://www.latextemplates.com/template/twenty-seconds-resumecv
+% https://www.latextemplates.com/template/friggeri-resume-cv
+
+\documentclass[lighthipster]{hipster-cv}
+% available options are: darkhipster, lighthipster, pastel, allblack, grey, verylight, withoutsidebar
+% withoutsidebar
+\usepackage[utf8]{inputenc}
+\usepackage[default]{raleway}
+\usepackage[margin=1cm, a4paper]{geometry}
+
+
+%------------------------------------------------------------------ Variablen
+
+\newlength{\rightcolwidth}
+\newlength{\leftcolwidth}
+\setlength{\leftcolwidth}{0.25\textwidth}
+\setlength{\rightcolwidth}{0.70\textwidth}
+
+%------------------------------------------------------------------
+\title{Brian Glusman Resume}
+\author{Brian J Glusman}
+\date{\today}
+
+\pagestyle{empty}
+\begin{document}
+
+
+\thispagestyle{empty}
+%-------------------------------------------------------------
+
+\section*{Start}
+
+\simpleheader{headercolour}{Brian J}{Glusman}{Engineering Manager}{white}
+
+
+
+%------------------------------------------------
+
+% this has to be here so the paracols starts..
+\subsection*{}
+\vspace{4em}
+
+\setlength{\columnsep}{0.03\textwidth}
+\columnratio{0.25}[0.70]
+\begin{paracol}{2}
+\hbadness5000
+%\backgroundcolor{c[1]}[rgb]{1,1,0.8} % cream yellow for column-1 %\backgroundcolor{g}[rgb]{0.8,1,1} % \backgroundcolor{l}[rgb]{0,0,0.7} % dark blue for left margin
+
+\paracolbackgroundoptions
+
+% 0.9,0.9,0.9 -- 0.8,0.8,0.8
+
+
+\footnotesize
+{\setasidefontcolour
+\flushright
+% \begin{center}
+%     \roundpic{jack.jpg} % User should replace jack.jpg with their own image file if desired
+% \end{center}
+
+\bg{cvgreen}{white}{About me}\\[0.5em]
+
+{\footnotesize
+Experienced engineering manager and developer with expertise in Elixir, Phoenix, and data analytics platforms. Strong background in technical leadership, system architecture, and mentoring engineers.}
+\bigskip
+
+\bg{cvgreen}{white}{personal} \\[0.5em]
+Brian J Glusman
+
+Brooklyn, NY
+
+\bigskip
+
+\bg{cvgreen}{white}{Areas of specialization} \\[0.5em]
+
+Elixir ~•~ Phoenix ~•~ Kubernetes ~•~ Snowflake ~•~ GraphQL
+
+\bigskip
+
+\bg{cvgreen}{white}{Interests}\\[0.5em]
+
+live\_dashboard\_history ~•~ phoenix\_live\_dashboard PR ~•~ avalanche ~•~ ayesql
+\bigskip
+
+\vspace{4em}
+
+\infobubble{\faAt}{cvgreen}{white}{brian@glusman.me}
+
+\phantom{turn the page}
+
+\phantom{turn the page}
+}
+%-----------------------------------------------------------
+\switchcolumn
+
+\small
+\section*{Short Resumé}
+
+\begin{tabular}{r| p{0.5\textwidth} c}
+    \cvevent{July 2020 – Present}{Engineering Manager – Executive Intelligence Reporting \& Analytics Platform}{PepsiCo}{New York City, NY \color{cvred}}{Led automation tooling, improved Snowflake query processes, developed widely-used internal frameworks, and mentored multiple engineers.}{none} \\
+    \cvevent{August 2015 – July 2020}{Director of Technology / Tech Lead}{Stella Service, Inc. / PowerReviews, Inc.}{New York City, NY / Chicago, IL (remote) \color{cvred}}{Pioneered Kubernetes and Elixir/Phoenix adoption. Managed product through acquisition and legacy platform migration.}{none}
+\end{tabular}
+\vspace{3em}
+
+\begin{minipage}[t]{0.35\textwidth}
+\section*{Degrees}
+\begin{tabular}{r p{0.6\textwidth} c}
+    \cvdegree{May 2001}{B.A. in Computer Science}{}{Bowdoin College \color{headerblue}}{Brunswick, Maine}{none} \\
+    \cvdegree{Spring 2015}{Self-directed programmer retreat}{}{Recurse Center \color{headerblue}}{New York City, NY}{none}
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\textwidth}
+\section*{Programming}
+\begin{tabular}{r @{\hspace{0.5em}}l}
+     \bg{skilllabelcolour}{iconcolour}{Elixir} &  \barrule{0.9}{0.5em}{cvgreen}\\ 
+     \bg{skilllabelcolour}{iconcolour}{Phoenix} & \barrule{0.85}{0.5em}{cvgreen} \\
+     \bg{skilllabelcolour}{iconcolour}{JavaScript} & \barrule{0.7}{0.5em}{cvpurple} \\
+     \bg{skilllabelcolour}{iconcolour}{SQL} & \barrule{0.75}{0.5em}{cvpurple} \\
+     \bg{skilllabelcolour}{iconcolour}{Ruby} & \barrule{0.6}{0.5em}{cvpurple}
+\end{tabular}
+\end{minipage}
+
+\section*{Curriculum}
+\begin{tabular}{r| p{0.5\textwidth} c}
+    \cvevent{Open Source}{live\_dashboard\_history}{Phoenix LiveDashboard Plugin}{GitHub \color{cvred}}{Plugin for Phoenix LiveDashboard that adds historical metrics tracking.}{github-mark.png} \\
+    \cvevent{Open Source}{phoenix\_live\_dashboard (contribution)}{Telemetry Integration PR}{GitHub \color{cvred}}{Significant PR improving plugin telemetry integration and extensibility.}{github-mark.png}
+\end{tabular}
+\vspace{3em}
+
+\vfill{} % Whitespace before final footer
+
+%----------------------------------------------------------------------------------------
+%	FINAL FOOTER
+%----------------------------------------------------------------------------------------
+\setlength{\parindent}{0pt}
+\begin{minipage}[t]{\rightcolwidth}
+\begin{center}\fontfamily{\sfdefault}\selectfont \color{black!70}
+{\small Brian J Glusman \icon{\faEnvelopeO}{cvgreen}{} 651 Vanderbilt St, Apt 3X \icon{\faMapMarker}{cvgreen}{} Brooklyn, NY \icon{\faPhone}{cvgreen}{} 215-460-9585 \newline\icon{\faAt}{cvgreen}{} \protect\url{brian@glusman.me}
+}
+\end{center}
+\end{minipage}
+
+\end{paracol}
+
+\end{document}
+% a mashup of hipstercv, friggeri and twenty cv
+% https://www.latextemplates.com/template/twenty-seconds-resumecv
+% https://www.latextemplates.com/template/friggeri-resume-cv
+
+\documentclass[lighthipster]{hipster-cv}
+% available options are: darkhipster, lighthipster, pastel, allblack, grey, verylight, withoutsidebar
+% withoutsidebar
+\usepackage[utf8]{inputenc}
+\usepackage[default]{raleway}
+\usepackage[margin=1cm, a4paper]{geometry}
+
+
+%------------------------------------------------------------------ Variablen
+
+\newlength{\rightcolwidth}
+\newlength{\leftcolwidth}
+\setlength{\leftcolwidth}{0.25\textwidth}
+\setlength{\rightcolwidth}{0.70\textwidth}
+
+%------------------------------------------------------------------
+\title{New Simple CV}
+\author{Brian J Glusman}
+\date{\today}
+
+\pagestyle{empty}
+\begin{document}
+
+
+\thispagestyle{empty}
+%-------------------------------------------------------------
+
+\section*{Start}
+
+\simpleheader{headercolour}{Brian J}{Glusman}{Engineering Manager}{white}
+
+
+
+%------------------------------------------------
+
+% this has to be here so the paracols starts..
+\subsection*{}
+\vspace{4em}
+
+\setlength{\columnsep}{0.03\textwidth}
+\columnratio{0.25}[0.70]
+\begin{paracol}{2}
+\hbadness5000
+%\backgroundcolor{c[1]}[rgb]{1,1,0.8} % cream yellow for column-1 %\backgroundcolor{g}[rgb]{0.8,1,1} % \backgroundcolor{l}[rgb]{0,0,0.7} % dark blue for left margin
+
+\paracolbackgroundoptions
+
+% 0.9,0.9,0.9 -- 0.8,0.8,0.8
+
+
+\footnotesize
+{\setasidefontcolour
+\flushright
+\begin{center}
+    \roundpic{jack.jpg} % User should replace jack.jpg with their own image file if desired
+\end{center}
+
+\bg{cvgreen}{white}{About me}\\[0.5em]
+
+{\footnotesize
+Experienced engineering manager and developer with expertise in Elixir, Phoenix, and data analytics platforms. Strong background in technical leadership, system architecture, and mentoring engineers.}
+\bigskip
+
+\bg{cvgreen}{white}{personal} \\[0.5em]
+Brian J Glusman
+
+Brooklyn, NY
+
+\bigskip
+
+\bg{cvgreen}{white}{Areas of specialization} \\[0.5em]
+
+Elixir ~•~ Phoenix ~•~ Kubernetes ~•~ Snowflake ~•~ GraphQL
+
+\bigskip
+
+\bg{cvgreen}{white}{Interests}\\[0.5em]
+
+live\_dashboard\_history ~•~ phoenix\_live\_dashboard PR ~•~ avalanche ~•~ ayesql
+\bigskip
+
+\vspace{4em}
+
+\infobubble{\faAt}{cvgreen}{white}{brian@glusman.me}
+
+\phantom{turn the page}
+
+\phantom{turn the page}
+}
+%-----------------------------------------------------------
+\switchcolumn
+
+\small
+\section*{Short Resumé}
+
+\begin{tabular}{r| p{0.5\textwidth} c}
+    \cvevent{July 2020 – Present}{Engineering Manager – Executive Intelligence Reporting \& Analytics Platform}{PepsiCo}{New York City, NY \color{cvred}}{Led automation tooling, improved Snowflake query processes, developed widely-used internal frameworks, and mentored multiple engineers.}{none} \\
+    \cvevent{August 2015 – February 2019}{Director of Technology / Tech Lead}{Stella Service, Inc. / PowerReviews, Inc.}{New York City, NY / Chicago, IL (remote) \color{cvred}}{Pioneered Kubernetes and Elixir/Phoenix adoption. Managed product through acquisition and legacy platform migration.}{none}
+\end{tabular}
+\vspace{3em}
+
+\begin{minipage}[t]{0.35\textwidth}
+\section*{Degrees}
+\begin{tabular}{r p{0.6\textwidth} c}
+    \cvdegree{May 2001}{B.A. in Computer Science}{}{Bowdoin College \color{headerblue}}{Brunswick, Maine}{none} \\
+    \cvdegree{Spring 2015}{Self-directed programmer retreat}{}{Recurse Center \color{headerblue}}{New York City, NY}{none}
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.3\textwidth}
+\section*{Programming}
+\begin{tabular}{r @{\hspace{0.5em}}l}
+     \bg{skilllabelcolour}{iconcolour}{Elixir} &  \barrule{0.9}{0.5em}{cvgreen}\\ 
+     \bg{skilllabelcolour}{iconcolour}{Phoenix} & \barrule{0.85}{0.5em}{cvgreen} \\
+     \bg{skilllabelcolour}{iconcolour}{JavaScript} & \barrule{0.7}{0.5em}{cvpurple} \\
+     \bg{skilllabelcolour}{iconcolour}{SQL} & \barrule{0.75}{0.5em}{cvpurple} \\
+     \bg{skilllabelcolour}{iconcolour}{Ruby} & \barrule{0.6}{0.5em}{cvpurple}
+\end{tabular}
+\end{minipage}
+
+\section*{Curriculum}
+\begin{tabular}{r| p{0.5\textwidth} c}
+    \cvevent{Open Source}{live\_dashboard\_history}{Phoenix LiveDashboard Plugin}{GitHub \color{cvred}}{Plugin for Phoenix LiveDashboard that adds historical metrics tracking.}{github-mark.png} \\
+    \cvevent{Open Source}{phoenix\_live\_dashboard (contribution)}{Telemetry Integration PR}{GitHub \color{cvred}}{Significant PR improving plugin telemetry integration and extensibility.}{github-mark.png}
+\end{tabular}
+\vspace{3em}
+
+\vfill{} % Whitespace before final footer
+
+%----------------------------------------------------------------------------------------
+%	FINAL FOOTER
+%----------------------------------------------------------------------------------------
+\setlength{\parindent}{0pt}
+\begin{minipage}[t]{\rightcolwidth}
+\begin{center}\fontfamily{\sfdefault}\selectfont \color{black!70}
+{\small Brian J Glusman \icon{\faEnvelopeO}{cvgreen}{} 651 Vanderbilt St, Apt 3X \icon{\faMapMarker}{cvgreen}{} Brooklyn, NY \icon{\faPhone}{cvgreen}{} 215-460-9585 \newline\icon{\faAt}{cvgreen}{} \protect\url{brian@glusman.me}
+}
+\end{center}
+\end{minipage}
+
+\end{paracol}
+
+\end{document}

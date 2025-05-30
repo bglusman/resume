@@ -1,0 +1,114 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Stylish Curriculum Vitae
+% LaTeX Template
+% Version 1.1 (September 10, 2021)
+%
+% This template originates from:
+% https://www.LaTeXTemplates.com
+%
+% Authors:
+% Stefano (https://www.kindoblue.nl)
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper, oneside, final]{scrartcl} % Paper options using the scrartcl class
+
+\usepackage{scrlayer-scrpage} % Provides headers and footers configuration
+\usepackage{titlesec} % Allows creating custom \section's
+\usepackage{marvosym} % Allows the use of symbols
+\usepackage{tabularx,colortbl} % Advanced table configurations
+\usepackage{ebgaramond} % Use the EB Garamond font
+\usepackage{microtype} % To enable letterspacing
+\usepackage{hyperref} % For clickable links
+\usepackage{xurl}     % For line-breakable URLs
+
+% Input generated meta information (name, contact details, etc.)
+% This file will be created by the generate_resume.sh script
+\input{generated_meta_info.tex}
+
+\titleformat{\section}{\large\scshape\raggedright}{}{0em}{}[\titlerule] % Section formatting
+
+\pagestyle{scrheadings} % Print the headers and footers on all pages
+
+\addtolength{\voffset}{-0.5in} % Adjust the vertical offset - less whitespace at the top of the page
+\addtolength{\textheight}{3cm} % Adjust the text height - less whitespace at the bottom of the page
+
+\newcommand{\gray}{\rowcolor[gray]{.90}} % Custom highlighting for the work experience and education sections
+
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}} % Definition for \tightlist
+
+%----------------------------------------------------------------------------------------
+%	FOOTER SECTION
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\headfont}{\normalfont\rmfamily\scshape} % Font settings for footer
+
+\cofoot{
+\fontsize{12.5}{17}\selectfont % Letter spacing and font size
+
+\textls[150]{\MyStreetAddress{} {\large\textperiodcentered} \MyCity{} {\large\textperiodcentered} \MyCountryZip{}}\\ % Your mailing address
+{\Large\Letter} \textls[150]{\MyEmail{} \ {\Large\Telefon} \MyPhone{}} % Your email address and phone number
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{center} % Center everything in the document
+
+%----------------------------------------------------------------------------------------
+%	HEADER SECTION
+%----------------------------------------------------------------------------------------
+
+{\fontsize{36}{36}\selectfont\scshape\textls[200]{\MyName{}}} % Your name at the top
+
+\vspace{1.5cm} % Extra whitespace after the large name at the top
+
+%----------------------------------------------------------------------------------------
+%	OBJECTIVE (Commented out for now)
+%----------------------------------------------------------------------------------------
+
+% \section{Objective}
+% \input{generated_objective.tex} % If you create data/objective.md and a corresponding generator
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\section{Work Experience}
+
+\input{generated_work_experience.tex}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+
+\section{Education}
+
+\input{generated_education.tex}
+
+%----------------------------------------------------------------------------------------
+%	PROJECTS
+%----------------------------------------------------------------------------------------
+
+\section{Projects}
+
+\input{generated_projects.tex}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+
+\section{Skills}
+
+\input{generated_skills.tex}
+
+%----------------------------------------------------------------------------------------
+
+\end{center}
+
+\end{document}

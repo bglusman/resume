@@ -1,0 +1,73 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Simple Professional CV Template
+% Works with BasicTeX without additional packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt, a4paper]{article}
+
+% Basic packages that come with BasicTeX
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+
+% Input generated meta information
+\input{generated_meta_info.tex}
+
+% Page setup
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\MyName{} \quad|\quad \thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% Custom commands
+\newcommand{\cvsection}[1]{
+    \vspace{12pt}
+    \noindent{\large\textbf{#1}}
+    \vspace{6pt}
+    \hrule
+    \vspace{6pt}
+}
+
+\newcommand{\cvsubsection}[1]{
+    \vspace{6pt}
+    \noindent{\textbf{#1}}
+    \vspace{3pt}
+}
+
+\newcommand{\datedsubsection}[2]{
+    \vspace{6pt}
+    \noindent\textbf{#1} \hfill \textbf{#2}
+    \vspace{3pt}
+}
+
+% Remove default paragraph indentation
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% Header
+\begin{center}
+    {\LARGE\textbf{\MyName{}}}\\
+    \vspace{6pt}
+    \MyEmail{} \quad|\quad \MyPhone{} \quad|\quad \MyStreetAddress{}, \MyCity{}, \MyCountryZip{}
+\end{center}
+
+\vspace{12pt}
+
+% Work Experience
+\cvsection{Work Experience}
+\input{generated_work_experience.tex}
+
+% Education
+\cvsection{Education}
+\input{generated_education.tex}
+
+% Projects
+\cvsection{Projects}
+\input{generated_projects.tex}
+
+% Skills
+\cvsection{Skills}
+\input{generated_skills.tex}
+
+\end{document}

@@ -1,79 +1,87 @@
 ---
 work_experience:
-  items:
   - role: Engineering Manager – Executive Intelligence Reporting & Analytics Platform
-    company: PepsiCo
+    company_name: PepsiCo
     location: New York City, NY
-    dates: July 2020 – Present
-    description: |
-      Started as Senior Backend Engineer in supply chain (Elixir, Phoenix, GraphQL).
-      Promoted to Engineering Lead (2021) managing warehouse order processing.
-      Promoted to Engineering Manager (late 2021), supervising junior and mid-level engineers.
-      Shifted focus mid-2022 to overall order processing, and in 2024 to executive intelligence reporting.
-      Led automation tooling, improved Snowflake query processes, developed widely-used internal frameworks,
-      and mentored multiple engineers.
+    period: July 2020 – Present
+    details:
+      - "Started as Senior Backend Engineer in supply chain (Elixir, Phoenix, GraphQL)"
+      - "Promoted to Engineering Lead (2021) managing warehouse order processing"
+      - "Promoted to Engineering Manager (late 2021), supervising junior and mid-level engineers"
+      - "Led automation tooling, improved Snowflake query processes, developed widely-used internal frameworks"
+      - "Mentored multiple engineers and shifted focus to executive intelligence reporting in 2024"
+    tags: ["core", "elixir", "management", "phoenix", "snowflake"]
 
   - role: Director of Technology / Tech Lead
-    company: Stella Service, Inc. / PowerReviews, Inc.
+    company_name: Stella Service, Inc. / PowerReviews, Inc.
     location: New York City, NY / Chicago, IL (remote)
-    dates: August 2015 – February 2019
-    description: |
-      Led transformation of prototype to enterprise feature set, introduced hierarchical modeling, SAML authentication,
-      microservice API with high uptime.
-      Pioneered Kubernetes and Elixir/Phoenix adoption.
-      Managed product through acquisition and legacy platform migration.
+    period: August 2015 – February 2019
+    details:
+      - "Led transformation of prototype to enterprise feature set with hierarchical modeling"
+      - "Introduced SAML authentication and microservice API with high uptime"
+      - "Pioneered Kubernetes and Elixir/Phoenix adoption across the organization"
+      - "Managed product through acquisition and legacy platform migration"
+    tags: ["core", "elixir", "leadership", "kubernetes", "phoenix"]
 
   - role: Software Developer
-    company: Skillfeed (Shutterstock, Inc.)
+    company_name: Skillfeed (Shutterstock, Inc.)
     location: New York City, NY
-    dates: September 2014 – March 2015
-    description: |
-      Worked on internal startup with diverse features including internationalization and SEO.
+    period: September 2014 – March 2015
+    details:
+      - "Worked on internal startup with diverse features including internationalization and SEO"
+    tags: ["technical", "startup"]
 
   - role: Software Developer
-    company: Amicus FTW, Inc.
+    company_name: Amicus FTW, Inc.
     location: New York City, NY
-    dates: December 2012 – July 2014
-    description: |
-      Full-stack development using JRuby on Rails, Backbone, CoffeeScript, vanilla JS.
-      Originated HATEOAS/hypermedia API in JSON-HAL.
-      Open-sourced two projects with community docs on GitHub Pages.
-      Contributed to product development and UX decisions.
+    period: December 2012 – July 2014
+    details:
+      - "Full-stack development using JRuby on Rails, Backbone, CoffeeScript, vanilla JS"
+      - "Originated HATEOAS/hypermedia API in JSON-HAL"
+      - "Open-sourced two projects with community docs on GitHub Pages"
+      - "Contributed to product development and UX decisions"
+    tags: ["technical", "ruby", "api"]
 
   - role: Software Developer (contract)
-    company: Bloomberg Black (Bloomberg, LP)
+    company_name: Bloomberg Black (Bloomberg, LP)
     location: New York City, NY
-    dates: August 2012 – December 2012
-    description: |
-      Authored Ruby gem extending VCR for SOAP XML serialization/deserialization.
-      Developed prototypes with HAML, JS, Rails controllers with SOAP backend.
+    period: August 2012 – December 2012
+    details:
+      - "Authored Ruby gem extending VCR for SOAP XML serialization/deserialization"
+      - "Developed prototypes with HAML, JS, Rails controllers with SOAP backend"
+    tags: ["technical", "ruby", "contract"]
 
   - role: Software Developer (contract)
-    company: Neomind Labs, LLC
+    company_name: Neomind Labs, LLC
     location: Philadelphia, PA
-    dates: January 2011 – July 2012
-    description: |
-      Ruby on Rails web maintenance and feature development for small projects.
+    period: January 2011 – July 2012
+    details:
+      - "Ruby on Rails web maintenance and feature development for small projects"
+    tags: ["technical", "ruby", "contract"]
 
   - role: Founder & Primary Executive
-    company: Enjyn, LLC
+    company_name: Enjyn, LLC
     location: Ardmore, PA
-    dates: May 2009 – March 2011
-    description: |
-      Founded ENJYN platform, developed business plan, branding, and secured seed funding.
-      Led tech research, development, deployment, marketing, and partnerships.
+    period: May 2009 – March 2011
+    details:
+      - "Founded ENJYN platform, developed business plan, branding, and secured seed funding"
+      - "Led tech research, development, deployment, marketing, and partnerships"
+    tags: ["leadership", "startup", "founder"]
 
   - role: Software Developer
-    company: The Neat Company, Inc.
+    company_name: The Neat Company, Inc.
     location: Philadelphia, PA
-    dates: Fall 2008 – Spring 2009
-    description: Digital Business Processes team, NeatWorks for Mac.
+    period: Fall 2008 – Spring 2009
+    details:
+      - "Digital Business Processes team, NeatWorks for Mac"
+    tags: ["technical", "mac"]
 
   - role: Engineer Scientist
-    company: Boeing Integrated Defense Systems
+    company_name: Boeing Integrated Defense Systems
     location: Chicago, IL / Ridley Park, PA
-    dates: Summer 2001 – Fall 2007
-    description: |
-      RAH-66 Comanche software R&D (2001-2003).
-      Future Combat Systems JEBC2 and SoSCOE software development (2003-2007).
+    period: Summer 2001 – Fall 2007
+    details:
+      - "RAH-66 Comanche software R&D (2001-2003)"
+      - "Future Combat Systems JEBC2 and SoSCOE software development (2003-2007)"
+    tags: ["technical", "defense"]
 ---

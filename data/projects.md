@@ -1,21 +1,42 @@
 ---
 projects:
-  items:
-  - title: live_dashboard_history
-    link: https://github.com/bglusman/live_dashboard_history
+  - name: live_dashboard_history
+    period: "2021-2023"
+    technologies: "Elixir, Phoenix, LiveView, Telemetry"
     description: Plugin for Phoenix LiveDashboard that adds historical metrics tracking.
-    tags: [elixir, phoenix, telemetry]
+    details:
+      - "Extends Phoenix LiveDashboard with persistent metrics storage and visualization"
+      - "Provides historical trending and performance analysis capabilities"
+      - "Published as open-source package with comprehensive documentation"
+    tags: ["core", "elixir", "phoenix", "telemetry"]
 
-  - title: phoenix_live_dashboard (contribution)
-    link: https://github.com/bglusman/phoenix_live_dashboard
+  - name: phoenix_live_dashboard (contribution)
+    period: "2021"
+    technologies: "Elixir, Phoenix, LiveView"
     description: Significant PR improving plugin telemetry integration and extensibility.
-    tags: [elixir, open-source, observability]
+    details:
+      - "Enhanced telemetry integration architecture for better plugin extensibility"
+      - "Improved performance and reliability of dashboard updates"
+      - "Contributed to core Phoenix LiveDashboard project used by thousands"
+    tags: ["elixir", "open-source", "observability"]
 
-  - title: OpenPantry
+  - name: OpenPantry
+    period: "2020-2021"
+    technologies: "Elixir, Phoenix, PostgreSQL"
     description: Elixir/Phoenix app for food pantry inventory and selection management.
-    tags: [elixir, community, phoenix]
+    details:
+      - "Built inventory management system for community food pantries"
+      - "Implemented user-friendly selection interface for clients"
+      - "Designed for scalability across multiple pantry locations"
+    tags: ["elixir", "community", "phoenix"]
 
-  - title: DebtCeiling
+  - name: DebtCeiling
+    period: "2019"
+    technologies: "Ruby, RSpec, CI/CD"
     description: Ruby gem for monitoring technical debt with test suite integration.
-    tags: [ruby, tooling, quality]
+    details:
+      - "Automated technical debt tracking and reporting"
+      - "Integrated with test suites for continuous debt monitoring"
+      - "Published as open-source gem with community adoption"
+    tags: ["ruby", "tooling", "quality"]
 ---

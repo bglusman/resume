@@ -1,0 +1,70 @@
+# Resume Generator Configuration
+
+# Default settings
+defaults:
+  focus_tag: "core"
+  template: "stylish_cv_template.tex"
+  output_format: "pdf"  # pdf, txt, both
+
+# Template configurations
+templates:
+  stylish_cv:
+    file: "stylish_cv_template.tex"
+    type: "stylish_cv"
+    description: "Modern, clean CV template"
+    requires: ["stylishcv.cls"]
+  
+  awesome_cv:
+    file: "resume_cv.tex"
+    type: "awesome_cv" 
+    description: "Professional awesome-cv template"
+    requires: ["awesome-cv.cls", "fonts/"]
+  
+  ats_friendly:
+    file: "ats_friendly.txt"
+    type: "plain_text"
+    description: "ATS-optimized plain text format"
+    requires: []
+
+# AI Integration settings
+ai:
+  enabled: false
+  model: "gpt-4"
+  temperature: 0.3
+  max_tokens: 2000
+
+# Output settings
+output:
+  create_backup: true
+  cleanup_temp: true
+  include_debug_files: false
+
+# Validation rules
+validation:
+  required_fields:
+    meta: ["name", "email", "phone"]
+    work_experience: ["role", "company", "dates"]
+    education: ["degree", "institution", "date"]
+  
+  max_bullet_points: 5
+  max_summary_length: 300
+
+# Tag mappings for different job types
+tag_presets:
+  management:
+    description: "Management and leadership roles"
+    includes: ["core", "management", "leadership"]
+    
+  technical:
+    description: "Technical/IC roles"
+    includes: ["core", "elixir", "technical"]
+    
+  consulting:
+    description: "Consulting and client-facing roles" 
+    includes: ["core", "consulting", "client"]
+
+# Build settings
+build:
+  parallel_compilation: true
+  max_retries: 3
+  timeout_seconds: 120
