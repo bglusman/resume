@@ -1,0 +1,23 @@
+#!/bin/bash
+# Simple wrapper for resume generation
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Default paths
+DATA_DIR="$SCRIPT_DIR/data"
+TEMPLATE_DIR="$SCRIPT_DIR/templates"
+
+# Show usage if no arguments
+if [[ $# -eq 0 ]]; then
+    echo "Usage: ./generate_resume <output_file> [--onepage] [--focus <tag>]"
+    echo ""
+    echo "Examples:"
+    echo "  ./generate_resume my_resume.pdf"
+    echo "  ./generate_resume my_resume.pdf --onepage"
+    echo "  ./generate_resume my_resume.pdf --focus elixir"
+    echo ""
+    exit 1
+fi
+
+# Run the Python script
+python3 "$SCRIPT_DIR/resume_generator.py" "$DATA_DIR" "$@" "$TEMPLATE_DIR"

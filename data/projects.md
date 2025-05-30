@@ -1,42 +1,42 @@
 ---
 projects:
-  - name: live_dashboard_history
-    period: "2021-2023"
-    technologies: "Elixir, Phoenix, LiveView, Telemetry"
-    description: Plugin for Phoenix LiveDashboard that adds historical metrics tracking.
+  - name: Architecting Large Elixir & Phoenix Applications
+    period: "2022-2024"
+    technologies: "Elixir, Phoenix, PostgreSQL, LiveView"
+    description: Large-scale application architecture for enterprise systems at PepsiCo.
     details:
-      - "Extends Phoenix LiveDashboard with persistent metrics storage and visualization"
-      - "Provides historical trending and performance analysis capabilities"
-      - "Published as open-source package with comprehensive documentation"
-    tags: ["core", "elixir", "phoenix", "telemetry"]
+      - "Designed and implemented scalable Elixir/Phoenix applications"
+      - "Built sales intelligence tooling with real-time data processing"
+      - "Integrated with Snowflake and Apache Druid for analytics"
+    tags: ["core", "elixir", "phoenix", "architecture"]
 
-  - name: phoenix_live_dashboard (contribution)
-    period: "2021"
-    technologies: "Elixir, Phoenix, LiveView"
-    description: Significant PR improving plugin telemetry integration and extensibility.
-    details:
-      - "Enhanced telemetry integration architecture for better plugin extensibility"
-      - "Improved performance and reliability of dashboard updates"
-      - "Contributed to core Phoenix LiveDashboard project used by thousands"
-    tags: ["elixir", "open-source", "observability"]
-
-  - name: OpenPantry
-    period: "2020-2021"
+  - name: Fast Phoenix + Postgres Fuzzy Search
+    period: "2021-2022"
     technologies: "Elixir, Phoenix, PostgreSQL"
-    description: Elixir/Phoenix app for food pantry inventory and selection management.
+    description: High-performance fuzzy search implementation for Phoenix applications.
     details:
-      - "Built inventory management system for community food pantries"
-      - "Implemented user-friendly selection interface for clients"
-      - "Designed for scalability across multiple pantry locations"
-    tags: ["elixir", "community", "phoenix"]
+      - "Optimized PostgreSQL queries for fuzzy text matching"
+      - "Implemented efficient search algorithms for large datasets"
+      - "Achieved sub-second response times on million+ record datasets"
+    tags: ["elixir", "phoenix", "performance", "search"]
 
-  - name: DebtCeiling
-    period: "2019"
-    technologies: "Ruby, RSpec, CI/CD"
-    description: Ruby gem for monitoring technical debt with test suite integration.
+  - name: KBOO Mobile App
+    period: "2020-2021"
+    technologies: "React Native, JavaScript, API Integration"
+    description: Mobile application for KBOO Community Radio station.
     details:
-      - "Automated technical debt tracking and reporting"
-      - "Integrated with test suites for continuous debt monitoring"
-      - "Published as open-source gem with community adoption"
-    tags: ["ruby", "tooling", "quality"]
+      - "Built cross-platform mobile app for radio streaming"
+      - "Integrated with radio station's existing API infrastructure"
+      - "Implemented real-time program schedule and streaming features"
+    tags: ["mobile", "react-native", "community"]
+
+  - name: Sales Intelligence Internal Tooling
+    period: "2022-Present"
+    technologies: "Elixir, Phoenix, LiveView, D3, Snowflake, Apache Druid"
+    description: Executive intelligence reporting platform for PepsiCo sales analytics.
+    details:
+      - "Built comprehensive sales analytics dashboard with real-time data visualization"
+      - "Integrated multiple data sources including Snowflake and Apache Druid"
+      - "Developed interactive charts and reports using D3.js and LiveView"
+    tags: ["core", "analytics", "visualization", "enterprise"]
 ---

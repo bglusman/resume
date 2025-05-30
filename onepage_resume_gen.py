@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Quick Resume Generator - No external dependencies
-Generates a stylish CV directly from the data files
+One-Page Resume Generator
+Generates a condensed, single-page resume perfect for quick handoffs
 """
 
 import os
@@ -163,39 +163,127 @@ def filter_by_tag(items, focus_tag):
             filtered.append(item)
     return filtered
 
+def summarize_text(text, max_words=15):
+    """Summarize text to fit in limited space"""
+    if not text:
+        return ""
+    words = text.split()
+    if len(words) <= max_words:
+        return text
+    return ' '.join(words[:max_words]) + "..."
+
+def generate_work_experience_summary(work_items, focus_tag, output_file):
+    """Generate condensed work experience for one-page resume"""
+    filtered_work = filter_by_tag(work_items, focus_tag)
+    
+    # Limit to top 3-4 most recent positions
+    recent_work = filtered_work[:4]
+    
+    with open(output_file, 'w') as f:
+        for i, item in enumerate(recent_work):
+            role = latex_escape(item.get('role', ''))
+            company = latex_escape(item.get('company_name', ''))
+            period = latex_escape(item.get('period', ''))
+            
+            f.write(f"\\datedsubsection{{\\textbf{{{role}}}, {company}}}{{\\textbf{{{period}}}}}\n")
+            
+            # Limit to 2 most impactful details
+            details = item.get('details', [])
+            if details:
+                f.write("\\begin{itemize}[leftmargin=*, itemsep=0pt, parsep=0pt, topsep=0pt]\n")
+                for detail in details[:2]:  # Only show top 2 details
+                    summarized_detail = summarize_text(detail, 20)
+                    f.write(f"    \\item {latex_escape(summarized_detail)}\n")
+                f.write("\\end{itemize}\n")
+            
+            # Reduced spacing between items
+            if i < len(recent_work) - 1:
+                f.write("\\vspace{0.2em}\n\n")
+
+def generate_projects_summary(project_items, focus_tag, output_file):
+    """Generate condensed projects for one-page resume"""
+    filtered_projects = filter_by_tag(project_items, focus_tag)
+    
+    # Limit to top 2-3 most impressive projects
+    top_projects = filtered_projects[:3]
+    
+    with open(output_file, 'w') as f:
+        for i, item in enumerate(top_projects):
+            name = latex_escape(item.get('name', ''))
+            technologies = latex_escape(item.get('technologies', ''))
+            description = latex_escape(item.get('description', ''))
+            
+            f.write(f"\\textbf{{{name}}}")
+            if technologies:
+                # Limit technologies to key ones
+                tech_list = technologies.split(',')[:4]  # Show max 4 technologies
+                tech_str = ', '.join([t.strip() for t in tech_list])
+                f.write(f" \\textit{{({tech_str})}}")
+            f.write("\\\\\n")
+            
+            # Show only description, no detailed bullet points
+            if description:
+                summarized_desc = summarize_text(description, 25)
+                f.write(f"{summarized_desc}\n")
+            
+            if i < len(top_projects) - 1:
+                f.write("\\vspace{0.3em}\n\n")
+
+def generate_skills_condensed(skills_items, output_file):
+    """Generate condensed skills in paragraph format"""
+    with open(output_file, 'w') as f:
+        skill_categories = []
+        
+        for item in skills_items:
+            if isinstance(item, dict):
+                category = item.get('category', '')
+                skills = item.get('skills', [])
+                
+                # Show only top 5-6 skills per category
+                top_skills = skills[:6]
+                skill_str = ', '.join([latex_escape(skill) for skill in top_skills])
+                
+                if category and skill_str:
+                    skill_categories.append(f"\\textbf{{{latex_escape(category)}:}} {skill_str}")
+        
+        # Format as condensed paragraphs instead of lists
+        for i, category_text in enumerate(skill_categories):
+            f.write(f"{category_text}")
+            if i < len(skill_categories) - 1:
+                f.write("\\\\[0.2em]\n")
+            else:
+                f.write("\n")
+
+def generate_education_condensed(education_items, output_file):
+    """Generate condensed education"""
+    with open(output_file, 'w') as f:
+        for item in education_items:
+            degree = latex_escape(item.get('degree', ''))
+            institution = latex_escape(item.get('institution', ''))
+            period = latex_escape(item.get('period', ''))
+            
+            f.write(f"\\textbf{{{degree}}}, \\textit{{{institution}}} \\hfill \\textbf{{{period}}}\\\\\n")
+            
+            # Only show most relevant details (like GPA if exceptional)
+            details = item.get('details', [])
+            relevant_details = [d for d in details if 'GPA' in d or 'SAT' in d or 'magna' in d.lower() or 'summa' in d.lower()]
+            if relevant_details:
+                f.write(f"\\textit{{{latex_escape(relevant_details[0])}}}\\\\\n")
+            
+            f.write("\\vspace{0.2em}\n")
+
 def main():
     if len(sys.argv) < 4:
-        print("Usage: python3 quick_resume_gen.py <data_dir> <output_pdf> <template_dir> [focus_tag] [--onepage]")
-        print("  --onepage: Generate a condensed one-page resume")
+        print("Usage: python3 onepage_resume_gen.py <data_dir> <output_pdf> <template_dir> [focus_tag]")
         sys.exit(1)
     
     data_dir = Path(sys.argv[1])
     output_pdf = Path(sys.argv[2])
     template_dir = Path(sys.argv[3])
-    
-    # Check for --onepage flag
-    onepage_mode = "--onepage" in sys.argv
-    if onepage_mode:
-        # Remove --onepage from args for processing
-        sys.argv = [arg for arg in sys.argv if arg != "--onepage"]
-    
     focus_tag = sys.argv[4] if len(sys.argv) > 4 else "core"
     
-    # If onepage mode, delegate to onepage generator
-    if onepage_mode:
-        import subprocess
-        script_dir = Path(__file__).parent
-        onepage_script = script_dir / "onepage_resume_gen.py"
-        if onepage_script.exists():
-            print("🎯 Generating one-page resume...")
-            result = subprocess.run([sys.executable, str(onepage_script), str(data_dir), str(output_pdf), str(template_dir), focus_tag])
-            sys.exit(result.returncode)
-        else:
-            print("❌ One-page generator not found. Falling back to regular resume.")
-            print(f"Expected: {onepage_script}")
-    
     # Create temp directory
-    temp_dir = Path(tempfile.mkdtemp(prefix="resume_"))
+    temp_dir = Path(tempfile.mkdtemp(prefix="onepage_resume_"))
     print(f"Working directory: {temp_dir}")
     
     try:
@@ -207,9 +295,9 @@ def main():
         education = load_resume_data(data_dir / "education.md")
         skills = load_resume_data(data_dir / "skills.md")
         
-        print(f"Generating resume with focus: {focus_tag}")
+        print(f"Generating one-page resume with focus: {focus_tag}")
         
-        # Generate meta info
+        # Generate meta info (same as regular resume)
         name = meta.get('name', 'Your Name')
         email = meta.get('email', 'email@example.com')
         phone = meta.get('phone', '555-123-4567')
@@ -235,125 +323,32 @@ def main():
             f.write(f"\\newcommand{{\\MyCity}}{{{latex_escape(city)}}}\n")
             f.write(f"\\newcommand{{\\MyCountryZip}}{{{latex_escape(country_zip)}}}\n")
         
-        # Generate work experience
+        # Generate condensed sections
         work_items = work_exp.get('work_experience', [])
-        filtered_work = filter_by_tag(work_items, focus_tag)
+        generate_work_experience_summary(work_items, focus_tag, temp_dir / "generated_work_experience_summary.tex")
         
-        with open(temp_dir / "generated_work_experience.tex", 'w') as f:
-            for item in filtered_work:
-                role = latex_escape(item.get('role', ''))
-                company = latex_escape(item.get('company_name', ''))
-                period = latex_escape(item.get('period', ''))
-                location = latex_escape(item.get('location', ''))
-                
-                f.write(f"\\datedsubsection{{\\textbf{{{role}}}, {company}}}{{\\textbf{{{period}}}}}\n")
-                f.write(f"{{\\hfill \\textbf{{{location}}}}}\n")
-                
-                details = item.get('details', [])
-                if details:
-                    f.write("\\begin{itemize}[leftmargin=*, itemsep=0pt, parsep=0pt, topsep=0pt]\n")
-                    for detail in details:
-                        f.write(f"    \\item {latex_escape(detail)}\n")
-                    f.write("\\end{itemize}\n")
-                f.write("\\vspace{0.5em}\n\n")
-        
-        # Generate projects
         project_items = projects.get('projects', [])
-        filtered_projects = filter_by_tag(project_items, focus_tag)
+        generate_projects_summary(project_items, focus_tag, temp_dir / "generated_projects_summary.tex")
         
-        with open(temp_dir / "generated_projects.tex", 'w') as f:
-            for item in filtered_projects:
-                name = latex_escape(item.get('name', ''))
-                period = latex_escape(item.get('period', ''))
-                technologies = latex_escape(item.get('technologies', ''))
-                description = latex_escape(item.get('description', ''))
-                
-                f.write(f"\\subsection{{\\textbf{{{name}}}}}\n")
-                if technologies:
-                    f.write(f"\\textit{{{technologies}}} \\hfill \\textit{{{period}}}\n")
-                else:
-                    f.write(f"\\hfill \\textit{{{period}}}\n")
-                
-                details = item.get('details', [])
-                if description or details:
-                    f.write("\\begin{itemize}[leftmargin=*, itemsep=0pt, parsep=0pt, topsep=0pt]\n")
-                    if description:
-                        f.write(f"    \\item {description}\n")
-                    for detail in details:
-                        f.write(f"    \\item {latex_escape(detail)}\n")
-                    f.write("\\end{itemize}\n")
-                f.write("\\vspace{0.5em}\n\n")
-        
-        # Generate education
         education_items = education.get('education', [])
+        generate_education_condensed(education_items, temp_dir / "generated_education_condensed.tex")
         
-        with open(temp_dir / "generated_education.tex", 'w') as f:
-            for item in education_items:
-                degree = latex_escape(item.get('degree', ''))
-                institution = latex_escape(item.get('institution', ''))
-                period = latex_escape(item.get('period', ''))
-                location = latex_escape(item.get('location', ''))
-                
-                f.write(f"\\datedsubsection{{\\textbf{{{degree}}}, \\textit{{{institution}}}}}{{\\textbf{{{period}}}}}\n")
-                f.write(f"{{\\hfill \\textit{{{location}}}}}\n")
-                
-                details = item.get('details', [])
-                if details:
-                    f.write("\\begin{itemize}[leftmargin=*, itemsep=0pt, parsep=0pt, topsep=0pt]\n")
-                    for detail in details:
-                        f.write(f"    \\item {latex_escape(detail)}\n")
-                    f.write("\\end{itemize}\n")
-                f.write("\\vspace{0.5em}\n\n")
-        
-        # Generate skills
         skills_items = skills.get('skills', [])
+        generate_skills_condensed(skills_items, temp_dir / "generated_skills_condensed.tex")
         
-        with open(temp_dir / "generated_skills.tex", 'w') as f:
-            for item in skills_items:
-                if isinstance(item, dict):
-                    category = latex_escape(item.get('category', ''))
-                    f.write(f"\\cvsubsection{{{category}}}\n")
-                    f.write("\\begin{itemize}[leftmargin=*, itemsep=0pt, parsep=0pt, topsep=0pt]\n")
-                    
-                    skill_items = item.get('skills', [])
-                    for skill in skill_items:
-                        f.write(f"    \\item {latex_escape(skill)}\n")
-                    
-                    f.write("\\end{itemize}\n")
-                    f.write("\\vspace{0.5em}\n\n")
-                else:
-                    print(f"Warning: Unexpected skills item format: {item}")
-        
-        # Copy template files - try basic template first for maximum compatibility
-        basic_template = template_dir / "basic_cv_template.tex"
-        simple_template = template_dir / "simple_cv_template.tex"
-        stylish_template = template_dir / "stylish_cv_template.tex"
-        
-        if basic_template.exists():
-            template_file = basic_template
-            template_name = "basic_cv_template.tex"
-            print("Using basic template (no packages required)")
-        elif simple_template.exists():
-            template_file = simple_template
-            template_name = "simple_cv_template.tex"
-            print("Using simple template")
-        elif stylish_template.exists():
-            template_file = stylish_template
-            template_name = "stylish_cv_template.tex"
-            print("Using stylish template")
-        else:
-            print(f"Error: No template file found in {template_dir}")
+        # Copy one-page template
+        onepage_template = template_dir / "onepage_cv_template.tex"
+        if not onepage_template.exists():
+            print(f"Error: One-page template not found: {onepage_template}")
             sys.exit(1)
         
-        shutil.copy(template_file, temp_dir / template_name)
+        shutil.copy(onepage_template, temp_dir / "onepage_cv_template.tex")
         
         # Check for class file
         class_file = template_dir / "stylishcv.cls"
         if class_file.exists():
             shutil.copy(class_file, temp_dir / "stylishcv.cls")
             print("Copied stylishcv.cls")
-        else:
-            print("Warning: stylishcv.cls not found - trying without it")
         
         # Try to compile with xelatex
         print("Checking for XeLaTeX...")
@@ -373,25 +368,23 @@ def main():
                     xelatex_cmd = path
                     break
         
-        xelatex_available = xelatex_cmd is not None
-        
-        if xelatex_available:
-            print("Compiling with XeLaTeX...")
+        if xelatex_cmd:
+            print("Compiling one-page resume with XeLaTeX...")
             old_cwd = os.getcwd()
             os.chdir(temp_dir)
             
             # Run xelatex twice for proper formatting
-            result1 = subprocess.run([xelatex_cmd, '-interaction=nonstopmode', template_name], 
+            result1 = subprocess.run([xelatex_cmd, '-interaction=nonstopmode', 'onepage_cv_template.tex'], 
                                    capture_output=True, text=True)
-            result2 = subprocess.run([xelatex_cmd, '-interaction=nonstopmode', template_name], 
+            result2 = subprocess.run([xelatex_cmd, '-interaction=nonstopmode', 'onepage_cv_template.tex'], 
                                    capture_output=True, text=True)
             
             os.chdir(old_cwd)
             
-            pdf_file = temp_dir / template_name.replace('.tex', '.pdf')
+            pdf_file = temp_dir / "onepage_cv_template.pdf"
             if pdf_file.exists():
                 shutil.copy(pdf_file, output_pdf)
-                print(f"✅ Resume generated successfully: {output_pdf}")
+                print(f"✅ One-page resume generated successfully: {output_pdf}")
                 print(f"📁 Temp files kept in: {temp_dir}")
             else:
                 print("❌ LaTeX compilation failed")
@@ -401,14 +394,7 @@ def main():
         else:
             print("⚠️  XeLaTeX not found - LaTeX files generated but PDF compilation skipped")
             print(f"✅ Generated LaTeX files in: {temp_dir}")
-            print(f"📄 Main template: {temp_dir}/{template_name}")
-            print("")
-            print("To complete PDF generation:")
-            print("1. Install XeLaTeX: brew install --cask basictex")
-            print("2. Run this command again")
-            print("")
-            print("Or compile manually:")
-            print(f"cd {temp_dir} && xelatex {template_name}")
+            print(f"📄 Main template: {temp_dir}/onepage_cv_template.tex")
     
     except Exception as e:
         print(f"Error: {e}")

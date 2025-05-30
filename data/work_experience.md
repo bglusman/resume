@@ -1,87 +1,72 @@
 ---
 work_experience:
-  - role: Engineering Manager – Executive Intelligence Reporting & Analytics Platform
+  - role: Senior Software Engineer
     company_name: PepsiCo
     location: New York City, NY
-    period: July 2020 – Present
+    period: January 2022 – Present
     details:
-      - "Started as Senior Backend Engineer in supply chain (Elixir, Phoenix, GraphQL)"
-      - "Promoted to Engineering Lead (2021) managing warehouse order processing"
-      - "Promoted to Engineering Manager (late 2021), supervising junior and mid-level engineers"
-      - "Led automation tooling, improved Snowflake query processes, developed widely-used internal frameworks"
-      - "Mentored multiple engineers and shifted focus to executive intelligence reporting in 2024"
-    tags: ["core", "elixir", "management", "phoenix", "snowflake"]
+      - "Building sales intelligence internal tooling using Elixir/Phoenix, LiveView, D3, PostgreSQL, Snowflake, and Apache Druid"
+      - "Developing data analytics platforms for executive intelligence reporting"
+      - "Architecting large-scale Elixir & Phoenix applications"
+      - "Implementing ETL processes and database optimization"
+    tags: ["core", "elixir", "phoenix", "snowflake", "analytics"]
 
-  - role: Director of Technology / Tech Lead
-    company_name: Stella Service, Inc. / PowerReviews, Inc.
-    location: New York City, NY / Chicago, IL (remote)
-    period: August 2015 – February 2019
-    details:
-      - "Led transformation of prototype to enterprise feature set with hierarchical modeling"
-      - "Introduced SAML authentication and microservice API with high uptime"
-      - "Pioneered Kubernetes and Elixir/Phoenix adoption across the organization"
-      - "Managed product through acquisition and legacy platform migration"
-    tags: ["core", "elixir", "leadership", "kubernetes", "phoenix"]
-
-  - role: Software Developer
-    company_name: Skillfeed (Shutterstock, Inc.)
+  - role: Senior Software Engineer
+    company_name: Quantierra
     location: New York City, NY
-    period: September 2014 – March 2015
+    period: January 2020 – January 2022
     details:
-      - "Worked on internal startup with diverse features including internationalization and SEO"
-    tags: ["technical", "startup"]
+      - "Worked on ETL processes and data scraping systems"
+      - "Implemented entity resolution algorithms and database optimization"
+      - "Developed comprehensive testing frameworks"
+      - "Built scalable data processing pipelines"
+    tags: ["core", "etl", "data", "testing", "python"]
 
-  - role: Software Developer
-    company_name: Amicus FTW, Inc.
+  - role: Lead Engineer
+    company_name: WeWork / Flatiron School
     location: New York City, NY
-    period: December 2012 – July 2014
+    period: July 2018 – February 2020
     details:
-      - "Full-stack development using JRuby on Rails, Backbone, CoffeeScript, vanilla JS"
-      - "Originated HATEOAS/hypermedia API in JSON-HAL"
-      - "Open-sourced two projects with community docs on GitHub Pages"
-      - "Contributed to product development and UX decisions"
-    tags: ["technical", "ruby", "api"]
+      - "Led team maintaining applications for admissions, billing, CMS, and web-based IDE"
+      - "Managed full-stack development projects and team coordination"
+      - "Architected scalable solutions for educational technology platform"
+      - "Mentored junior developers and established best practices"
+    tags: ["leadership", "education", "full-stack", "team-management"]
 
-  - role: Software Developer (contract)
-    company_name: Bloomberg Black (Bloomberg, LP)
+  - role: Software Engineer
+    company_name: StellaService
     location: New York City, NY
-    period: August 2012 – December 2012
+    period: 2015 – 2018
     details:
-      - "Authored Ruby gem extending VCR for SOAP XML serialization/deserialization"
-      - "Developed prototypes with HAML, JS, Rails controllers with SOAP backend"
-    tags: ["technical", "ruby", "contract"]
+      - "Developed customer service analytics platform"
+      - "Built APIs and microservices for e-commerce data processing"
+      - "Implemented data collection and analysis systems"
+    tags: ["technical", "api", "analytics"]
 
-  - role: Software Developer (contract)
-    company_name: Neomind Labs, LLC
-    location: Philadelphia, PA
-    period: January 2011 – July 2012
+  - role: Software Engineer
+    company_name: Wombat Security Technologies
+    location: Pittsburgh, PA
+    period: 2014 – 2015
     details:
-      - "Ruby on Rails web maintenance and feature development for small projects"
-    tags: ["technical", "ruby", "contract"]
+      - "Worked on cybersecurity training platform"
+      - "Developed web applications and backend systems"
+    tags: ["technical", "security", "web"]
 
-  - role: Founder & Primary Executive
-    company_name: Enjyn, LLC
-    location: Ardmore, PA
-    period: May 2009 – March 2011
+  - role: Software Engineer
+    company_name: CometaWorks
+    location: New York City, NY
+    period: 2013 – 2014
     details:
-      - "Founded ENJYN platform, developed business plan, branding, and secured seed funding"
-      - "Led tech research, development, deployment, marketing, and partnerships"
-    tags: ["leadership", "startup", "founder"]
+      - "Built web applications and mobile solutions"
+      - "Full-stack development using modern frameworks"
+    tags: ["technical", "web", "mobile"]
 
-  - role: Software Developer
-    company_name: The Neat Company, Inc.
-    location: Philadelphia, PA
-    period: Fall 2008 – Spring 2009
+  - role: Self-Employed Developer
+    company_name: Freelance
+    location: New York City, NY
+    period: 2010 – 2013
     details:
-      - "Digital Business Processes team, NeatWorks for Mac"
-    tags: ["technical", "mac"]
-
-  - role: Engineer Scientist
-    company_name: Boeing Integrated Defense Systems
-    location: Chicago, IL / Ridley Park, PA
-    period: Summer 2001 – Fall 2007
-    details:
-      - "RAH-66 Comanche software R&D (2001-2003)"
-      - "Future Combat Systems JEBC2 and SoSCOE software development (2003-2007)"
-    tags: ["technical", "defense"]
+      - "Developed custom software solutions for various clients"
+      - "Specialized in web development and mobile applications"
+    tags: ["freelance", "web", "mobile"]
 ---

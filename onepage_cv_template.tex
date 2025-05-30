@@ -1,0 +1,112 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% One-Page Curriculum Vitae
+% LaTeX Template
+% Condensed version for quick handoffs
+%
+% Based on Stylish CV template
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper, oneside, final]{scrartcl} % Paper options using the scrartcl class
+
+\usepackage{scrlayer-scrpage} % Provides headers and footers configuration
+\usepackage{titlesec} % Allows creating custom \section's
+\usepackage{marvosym} % Allows the use of symbols
+\usepackage{tabularx,colortbl} % Advanced table configurations
+\usepackage{ebgaramond} % Use the EB Garamond font
+\usepackage{microtype} % To enable letterspacing
+\usepackage{hyperref} % For clickable links
+\usepackage{xurl}     % For line-breakable URLs
+\usepackage{enumitem} % For customizing lists
+
+% Input generated meta information (name, contact details, etc.)
+\input{generated_meta_info.tex}
+
+\titleformat{\section}{\large\scshape\raggedright}{}{0em}{}[\titlerule] % Section formatting
+
+\pagestyle{scrheadings} % Print the headers and footers on all pages
+
+% Aggressive space reduction for one-page layout
+\addtolength{\voffset}{-0.8in} % More aggressive vertical offset
+\addtolength{\textheight}{4cm} % More text height
+\addtolength{\oddsidemargin}{-0.3in} % Reduce left margin
+\addtolength{\textwidth}{0.6in} % Increase text width
+
+% Reduce section spacing
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+
+% Custom commands for condensed formatting
+\newcommand{\gray}{\rowcolor[gray]{.90}}
+\newcommand{\datedsubsection}[2]{%
+  \subsection[#1]{#1 \hfill #2}%
+  \vspace{-0.3em}%
+}
+
+% Reduce itemize spacing even more
+\setlist[itemize]{leftmargin=10pt, itemsep=0pt, parsep=0pt, topsep=2pt, partopsep=0pt}
+
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%----------------------------------------------------------------------------------------
+%	FOOTER SECTION
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\headfont}{\normalfont\rmfamily\scshape} % Font settings for footer
+
+\cofoot{
+\fontsize{10}{12}\selectfont % Smaller footer font
+\textls[150]{\MyStreetAddress{} {\large\textperiodcentered} \MyCity{} {\large\textperiodcentered} \MyCountryZip{}}\\ % Your mailing address
+{\Large\Letter} \textls[150]{\MyEmail{} \ {\Large\Telefon} \MyPhone{}} % Your email address and phone number
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{center} % Center everything in the document
+
+%----------------------------------------------------------------------------------------
+%	HEADER SECTION
+%----------------------------------------------------------------------------------------
+
+{\fontsize{28}{28}\selectfont\scshape\textls[200]{\MyName{}}} % Smaller name at the top
+
+\vspace{0.8cm} % Reduced whitespace after name
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE (SUMMARY)
+%----------------------------------------------------------------------------------------
+
+\section{Work Experience}
+
+\input{generated_work_experience_summary.tex}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS (CONDENSED)
+%----------------------------------------------------------------------------------------
+
+\section{Technical Skills}
+
+\input{generated_skills_condensed.tex}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION (CONDENSED)
+%----------------------------------------------------------------------------------------
+
+\section{Education}
+
+\input{generated_education_condensed.tex}
+
+%----------------------------------------------------------------------------------------
+%	KEY PROJECTS (TOP 2-3)
+%----------------------------------------------------------------------------------------
+
+\section{Key Projects}
+
+\input{generated_projects_summary.tex}
+
+%----------------------------------------------------------------------------------------
+
+\end{center}
+
+\end{document}
